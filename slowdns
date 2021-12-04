@@ -1,0 +1,137 @@
+#!/usr/bin/env bash
+nameserver="$2"
+function slowdns() {
+echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "MENU SLOWDNS MANAGER V3.0" ; tput sgr0
+echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
+echo -e "\033[0;36m#===================================================#\033[m"
+echo -e "\033[0;36m# .|'''.|'||                '||''|. '|.   '|'.|'''.|#\033[m"
+echo -e "\033[0;36m# ||..  ' ||  ... ... ... ...||   || |'|   | ||..  '#\033[m"
+echo -e "\033[0;36m#  ''|||. ||.|  '|.||  ||  | ||    ||| '|. |  ''|||.#\033[m"
+echo -e "\033[0;36m#.     '||||||   || ||| |||  ||    |||   |||.     '|#\033[m"
+echo -e "\033[0;36m#|'....|'.||.'|..|'  |   |  .||...|'.|.   '||'....|'#\033[m"
+echo -e "\033[0;36m#---------------------------------------------------#\033[m"
+echo -e "\033[0;36m#\033[m \033[0;31mSlowDNS | Desfrute e passe tempo\033[m \033[0;36m#\033[m"
+echo -e "\033[0;36m#===================================================#\033[m"
+    echo ""
+    echo -e "\033[0;36m[01]\033[m | Instalar SlowDNS SSH"
+    echo -e "\033[0;36m[02]\033[m | Instalar SlowDNS SSL"
+    echo -e "\033[0;36m[03]\033[m | Instalar SlowDNS DROP"
+    echo -e "\033[0;36m[04]\033[m | Instalar SlowDNS SOCKS"
+    echo -e "\033[0;36m[05]\033[m | Mostrar Informacion"
+    echo -e "\033[0;36m[06]\033[m | Iniciar SlowDNS"
+    echo -e "\033[0;36m[07]\033[m | Reiniciar SlowDNS"
+    echo -e "\033[0;36m[08]\033[m | Parar SlowDNS"
+    echo -e "\033[0;36m[09]\033[m | Remover SlowDNS"
+    echo -e "\033[0;36m[10]\033[m | Atualizar/Reinstalar"
+    echo -e "\033[0;36m[11]\033[m | Remover Script"
+    echo -e "\033[0;36m[00]\033[m | SAIR"
+    echo ""
+    echo -ne "\033[0;36mElije Una Opcion?:\0033[m " && read opcao
+    case $opcao in
+    1) Opcao1 ;;
+    2) Opcao2 ;;
+    3) Opcao3 ;;
+    4) Opcao4 ;;
+    5) Opcao5 ;;
+    6) Opcao6 ;;
+    7) Opcao7 ;;
+    8) Opcao8 ;;
+    9) Opcao9 ;;
+    10) Opcao10 ;;
+    11) Opcao11 ;;
+    0) Sair ;;
+    *) "Calma Barboleta" ; echo ; slowdns ;;
+    esac
+}
+
+function slow_ssh() {
+    
+    bash /etc/slowdns/slowdns-ssh $nameserver
+}
+
+function slow_ssl() {
+    
+    bash /etc/slowdns/slowdns-ssl $nameserver
+}
+
+function slow_dropb() {
+    
+    bash /etc/slowdns/slowdns-drop $nameserver
+}
+
+function slow_sock() {
+    
+    bash /etc/slowdns/slowdns-socks $nameserver
+}
+
+
+function slow_info() {
+    
+    bash /etc/slowdns/slowdns-info
+}
+
+function slow_start() {
+    
+    bash /etc/slowdns/startdns
+}
+
+function slow_restart() {
+    
+    bash /etc/slowdns/restartdns
+}
+
+function slow_stop() {
+    
+    bash /etc/slowdns/stopdns
+}
+
+function slow_stop_remove() {
+    
+    bash /etc/slowdns/stopdns
+    bash /etc/slowdns/remove-slow
+    sleep 2
+    rm /bin/slowdns > /dev/null 2>&1
+}
+
+function slow_update() {
+    
+    wget https://raw.githubusercontent.com/leitura/slowdns/main/update
+    chmod +x update
+    bash update
+}
+
+function slow_remove(){
+    
+    bash /etc/slowdns/remove-slow
+    echo -e "\033[0;31mSlowDNS Manager Desinstalado!\033[0m"
+    sleep 2
+    rm /bin/slowdns > /dev/null 2>&1
+}
+
+function Sair() {
+    
+    exit
+}
+
+if [ "$1" == "ssh" ]; then
+slow_ssh
+elif [ "$1" == "ssl" ]; then
+slow_ssl
+elif [ "$1" == "drop" ]; then
+slow_dropb
+elif [ "$1" == "socks" ]; then
+slow_sock
+elif [ "$1" == "info" ]; then
+slow_info
+elif [ "$1" == "iniciar" ]; then
+slow_start
+elif [ "$1" == "reiniciar" ]; then
+slow_restart
+elif [ "$1" == "detener" ]; then
+slow_stop
+elif [ "$1" == "remover" ]; then
+slow_stop_remove
+else
+slowdns
+fi
