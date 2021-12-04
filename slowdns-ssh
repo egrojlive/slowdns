@@ -41,9 +41,9 @@ restaurar_key
 }
 
 restaurar_key() {
-echo "Restaurando key existente..." && sleep 2 && echo "OK!"
+echo "👩‍💻Restaurando key existente..." && sleep 2 && echo "OK!"
 echo ""
-echo "FINALIZANDO..."
+echo "✔️FINALIZANDO..."
 finish_ist () {
 cd /etc/slowdns
 iptables -I INPUT -p udp --dport 5300 -j ACCEPT
@@ -52,23 +52,23 @@ iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5300
 }
 finish_ist
 echo ""
-echo "NameServer: " && cat /etc/slowdns/infons
+echo "🌐NameServer: " && cat /etc/slowdns/infons
 echo ""
-echo "Key: " && cat /root/server.pub
+echo "🔑Key: " && cat /root/server.pub
 echo ""
-echo "COMANDO TERMUX: curl -sO https://sshplus.net/scripts/slowdns && chmod +x slowdns && ./slowdns " && cat /etc/slowdns/infons /root/server.pub
+echo "👩‍💻COMANDO TERMUX: curl -sO https://sshplus.net/scripts/slowdns && chmod +x slowdns && ./slowdns " && cat /etc/slowdns/infons /root/server.pub
 echo ""
-echo "Tu Key Se Encuentra En: /root/server.pub"
+echo "📂Tu Key Se Encuentra En: /root/server.pub"
 echo ""
 }
 
 nueva_key() {
 cd
 rm server.key server.pub
-echo "Generando nueva key"
+echo "🛠️Generando nueva key"
 cd /etc/slowdns/
 ./dns-server -gen-key -privkey-file /root/server.key -pubkey-file /root/server.pub
-echo "FINALIZANDO..."
+echo "✔️FINALIZANDO..."
 finish_ist () {
 iptables -I INPUT -p udp --dport 5300 -j ACCEPT
 iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5300
@@ -76,13 +76,13 @@ iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5300
 cd
 }
 finish_ist
-echo "NameServer: " && cat /etc/slowdns/infons
+echo "🌐NameServer: " && cat /etc/slowdns/infons
 echo ""
-echo "Key: " && cat /root/server.pub
+echo "🔑Key: " && cat /root/server.pub
 echo ""
-echo "COMANDO TERMUX: curl -sO https://sshplus.net/scripts/slowdns && chmod +x slowdns && ./slowdns " && cat /etc/slowdns/infons /root/server.pub
+echo "👩‍💻COMANDO TERMUX: curl -sO https://sshplus.net/scripts/slowdns && chmod +x slowdns && ./slowdns " && cat /etc/slowdns/infons /root/server.pub
 echo ""
-echo "Tu Key Se Encuentra En: /root/server.pub"
+echo "📂Tu Key Se Encuentra En: /root/server.pub"
 echo ""
 }
 
@@ -93,7 +93,7 @@ rm server.key server.pub
 wget https://github.com/egrojlive/slowdns/raw/main/server.key
 wget https://github.com/egrojlive/slowdns/raw/main/server.pub
 sleep 1
-echo -e "Download Concluído"
+echo "Download Concluído"
 sleep 1
 cd /etc/slowdns/
 echo -e "FINALIZANDO..."
@@ -205,16 +205,16 @@ slowdns
 }
 
 fun_att
-echo "Instalando Paquetes Necesarios..."
+echo "🛠️Instalando Paquetes Necesarios..."
 install_pkgs
-echo "Configurando Iptables..."
+echo "👉Configurando Iptables..."
 ipt_set
 cd /etc/slowdns
 touch infons > /dev/null 2>&1
 echo $nameserver > infons
 set_ns
 echo ""
-echo "Verificando Key Existente"
+echo "🔎Verificando Key Existente"
 sleep 2
 echo ""
 sleep 2
@@ -223,12 +223,12 @@ key1="/root/server.key"
 key2="/root/server.pub"
 if [ -f $key1 ] && [ -f $key2 ]
 then
-echo "Key Encontrada!"
+echo "🔎Key Encontrada!"
 sleep 1
 echo ""
 key
 else
-echo "Generando Una Nueva Key"
+echo "🛠️Generando Una Nueva Key"
 echo ""
 nueva_key
 fi
