@@ -96,7 +96,7 @@ function slow_stop_remove() {
 
 function slow_update() {
     
-    wget https://raw.githubusercontent.com/leitura/slowdns/main/update
+    wget https://github.com/egrojlive/slowdns/raw/main/update
     chmod +x update
     bash update
 }
@@ -104,7 +104,7 @@ function slow_update() {
 function slow_remove(){
     
     bash /etc/slowdns/remove-slow
-    echo -e "\033[0;31mSlowDNS Manager Desinstalado!\033[0m"
+    echo "SlowDNS Manager Desinstalado!"
     sleep 2
     rm /bin/slowdns > /dev/null 2>&1
 }
