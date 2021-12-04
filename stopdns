@@ -33,6 +33,6 @@ fun_desable () {
 screen -ls | grep slowdns | cut -d. -f1 | awk '{print $1}' | xargs kill
 sleep 2
 }
-fun_bar 'fun_desable'
+fun_desable
 echo ""
 echo "  SlowDNS Desativado! [✔]"
