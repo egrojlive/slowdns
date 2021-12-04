@@ -25,18 +25,18 @@ sudo systemctl disable systemd-resolved.service > /dev/null 2>&1 && sudo systemc
 sudo systemctl enable systemd-resolved.service > /dev/null 2>&1 && sudo systemctl start systemd-resolved.service > /dev/null 2>&1
 sleep 2
 }
-echo "Instalando Dependencias..."
+echo "👉Instalando Dependencias..."
 fun_att
-echo "Configurando Firewall..."
+echo "👉Configurando Firewall..."
 echo ""
 #fun_ports
-echo "Definiendo Dns De Cloudflare..."
+echo "👉Definiendo Dns De Cloudflare..."
 echo ""
 fun_dnscf
 slowdns ssh $dominio
 echo ""
 cd
 rm $0 > /dev/null 2>&1
-echo "Instalacion terminada"
-echo 'ejecuta slowdns para acceder al menu'
+echo "✔️Instalacion terminada"
+echo '👩‍💻ejecuta slowdns para acceder al menu'
 echo
