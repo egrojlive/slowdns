@@ -27,10 +27,10 @@ sleep 2
 }
 echo "Instalando Dependencias..."
 fun_att
-echo -e "CONFIGURANDO FIREWALL..."
+echo "Configurando Firewall..."
 echo ""
 #fun_ports
-echo "DEFININDO DNS DE CLOUDFLARE..."
+echo "Definiendo Dns De Cloudflare..."
 echo ""
 fun_dnscf
 slowdns ssh $dominio
