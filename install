@@ -1,5 +1,5 @@
 #!/bin/bash
-
+dominio="$2"
 fun_att () {
 apt install ncurses-utils -y > /dev/null 2>&1
 mkdir /etc/slowdns > /dev/null 2>&1
@@ -25,9 +25,7 @@ sudo systemctl disable systemd-resolved.service > /dev/null 2>&1 && sudo systemc
 sudo systemctl enable systemd-resolved.service > /dev/null 2>&1 && sudo systemctl start systemd-resolved.service > /dev/null 2>&1
 sleep 2
 }
-#
 echo "Instalando Dependencias..."
-
 fun_att
 echo -e "CONFIGURANDO FIREWALL..."
 echo ""
@@ -35,7 +33,7 @@ echo ""
 echo "DEFININDO DNS DE CLOUDFLARE..."
 echo ""
 fun_dnscf
-#
+slowdns ssh $dominio
 echo ""
 cd
 rm $0 > /dev/null 2>&1
