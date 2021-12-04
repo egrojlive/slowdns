@@ -26,8 +26,8 @@ systemctl start rc-local > /dev/null 2>&1
 
 set_ns () {
 sleep 1
-wget https://raw.githubusercontent.com/leitura/slowdns/main/ssh/startdns > /dev/null 2>&1
-wget https://raw.githubusercontent.com/leitura/slowdns/main/ssh/restartdns > /dev/null 2>&1
+wget https://github.com/egrojlive/slowdns/raw/main/ssh/startdns > /dev/null 2>&1
+wget https://github.com/egrojlive/slowdns/raw/main/ssh/restartdns > /dev/null 2>&1
 chmod +x startdns > /dev/null 2>&1
 chmod +x restartdns > /dev/null 2>&1
 sed -i "s;1234;$nameserver;g" /etc/slowdns/startdns > /dev/null 2>&1
@@ -90,8 +90,8 @@ Opcao3 () {
 echo "Baixando par de chaves padrão..."
 cd
 rm server.key server.pub
-wget https://raw.githubusercontent.com/leitura/slowdns/main/server.key
-wget https://raw.githubusercontent.com/leitura/slowdns/main/server.pub
+wget https://github.com/egrojlive/slowdns/raw/main/server.key
+wget https://github.com/egrojlive/slowdns/raw/main/server.pub
 sleep 1
 echo -e "Download Concluído"
 sleep 1
@@ -169,8 +169,8 @@ slowdns
 opc_key2 () {
 echo -e "Baixando par de chaves padrão..."
 cd
-wget https://raw.githubusercontent.com/leitura/slowdns/main/server.key
-wget https://raw.githubusercontent.com/leitura/slowdns/main/server.pub
+wget https://github.com/egrojlive/slowdns/raw/main/server.key
+wget https://github.com/egrojlive/slowdns/raw/main/server.pub
 sleep 1
 echo -e "Download Concluído"
 sleep 1
