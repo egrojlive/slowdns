@@ -1,2 +1,2 @@
 # slowdns
-instalação automática - slowdns dnstt-server
+✔️Instalacion automática - slowdns dnstt-server
