@@ -2,7 +2,8 @@
 nameserver="$1"
 
 fun_att () {
-apt update > /dev/null 2>&1 && apt upgrade -y > /dev/null 2>&1
+apt update > /dev/null 2>&1
+apt upgrade -y > /dev/null 2>&1
 }
 
 install_pkgs () {
