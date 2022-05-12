@@ -34,18 +34,18 @@ echo -e "\033[0;36m#===================================================#\033[m"
     echo ""
     echo -ne "\033[0;36mElije Una Opcion?:\0033[m " && read opcao
     case $opcao in
-    1) Opcao1 ;;
-    2) Opcao2 ;;
-    3) Opcao3 ;;
-    4) Opcao4 ;;
-    5) Opcao5 ;;
-    6) Opcao6 ;;
-    7) Opcao7 ;;
-    8) Opcao8 ;;
-    9) Opcao9 ;;
-    10) Opcao10 ;;
-    11) Opcao11 ;;
-    0) Sair ;;
+    1) slow_ssh ;;
+    2) slow_ssl ;;
+    3) slow_dropb ;;
+    4) slow_sock ;;
+    5) slow_info ;;
+    6) slow_start ;;
+    7) slow_restart ;;
+    8) slow_stop ;;
+    9) slow_stop_remove ;;
+    10) slow_update ;;
+    11) slow_remove ;;
+    0) Salir ;;
     *) "Calma Barboleta" ; echo ; slowdns ;;
     esac
 }
