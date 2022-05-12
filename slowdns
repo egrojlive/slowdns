@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
+if [ $2 ]; then 
 nameserver="$2"
+else
+echo -e "\n✍️Escribe Un Nombre De Dominio typo NS:\n"
+read nameserver
+fi
 function slowdns() {
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "MENU SLOWDNS MANAGER V3.0" ; tput sgr0

@@ -2,8 +2,7 @@
 nameserver="$1"
 
 fun_att () {
-apt update > /dev/null 2>&1
-apt upgrade -y > /dev/null 2>&1
+apt update > /dev/null 2>&1 && apt upgrade -y > /dev/null 2>&1
 }
 
 install_pkgs () {
@@ -88,7 +87,7 @@ echo ""
 }
 
 Opcao3 () {
-echo "Baixando par de chaves padrão..."
+echo "Bajando Claves..."
 cd
 rm server.key server.pub
 wget https://github.com/egrojlive/slowdns/raw/main/server.key
@@ -127,11 +126,11 @@ exit
 key_gen () {
 echo "Como deseja obter sua key?"
 echo ""
-echo "[ 1 ] | Gerar na instalação"
-echo "[ 2 ] | Usar a key padrão"
-echo "[ x ] | Abortar instalação"
+echo "[ 1 ] | Generar Key"
+echo "[ 2 ] | Usar KeyGlobal"
+echo "[ x ] | Abortar instalaçion"
 echo ""
-echo -ne "Digite uma opção: " && read opc_key
+echo -ne "Escribe Una Opcion: " && read opc_key
 case $opc_key in
 1) opc_key1 ;;
 2) opc_key2 ;;
@@ -141,7 +140,7 @@ esac
 }
 
 opc_key1 () {
-echo "Gerando sua key..."
+echo "Generando Key..."
 cd /etc/slowdns/
 ./dns-server -gen-key -privkey-file /root/server.key -pubkey-file /root/server.pub
 echo -e "FINALIZANDO..."
@@ -168,7 +167,7 @@ slowdns
 }
 
 opc_key2 () {
-echo -e "Baixando par de chaves padrão..."
+echo -e "Bajando Claves..."
 cd
 wget https://github.com/egrojlive/slowdns/raw/main/server.key
 wget https://github.com/egrojlive/slowdns/raw/main/server.pub
@@ -200,7 +199,7 @@ slowdns
 }
 
 opc_keyx () {
-echo "Abortando instalação"
+echo "Abortando instalaçion"
 sleep 2
 slowdns
 }

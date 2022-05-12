@@ -30,19 +30,19 @@ echo -e "\033[1;31m════════════════════�
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "INSTALANDO SLOWDNS SSL" ; tput sgr0
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 echo -e ""
-echo -e "      Esse script irá fazer a instalação do"
-echo -e "     slowdns para tunelamento de DNS com SSL."
+echo -e "      Este Script Instala Slowdns"
+echo -e "     slowdns para Tunelamiemnto ssl"
 echo -e ""
-echo -e "         \033[1;33mInstalador feito por edição️ \033[1;37m"
+echo -e "         \033[1;33mInstalador Editado \033[1;37m"
 echo -e ""
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 echo ""
-echo -e "ATUALIZANDO LISTA DE PACOTES..."
+echo -e "ATUALIZANDO LISTA DE PAQUETES..."
 fun_att () {
 apt update && apt upgrade -y
 }
 fun_bar 'fun_att'
-echo -e "INSTALANDO E ATUALIZANDO PACOTES NECESSARIOS..."
+echo -e "INSTALANDO Y ACTUALIZANDOPAQUETES NECESSARIOS..."
 install_pkgs () {
 apt install screen -y
 apt install cron -y
@@ -66,10 +66,10 @@ systemctl start rc-local
 fun_bar 'ipt_set'
 clear
 echo ""
-echo -e "\033[1;31m ATENÇÃO NESSA ETAPA! \033[1;33m"
+echo -e "\033[1;31m ATENCION! \033[1;33m"
 echo ""
 cd /etc/slowdns
-echo -ne "\033[1;32m INFORME SEU NS (NAMESERVER)\033[1;37m: "; read nameserver
+echo -ne "\033[1;32m 🌐NameServer: \033[1;37m: "; read nameserver
 touch infons
 echo $nameserver > infons
 set_ns () {
@@ -95,7 +95,7 @@ key1="/root/server.key"
 key2="/root/server.pub"
 if [ -f $key1 ] && [ -f $key2 ]
 then
-echo -e "Arquivo de key encontrado!"
+echo "🔎Key Encontrada!"
 sleep 1
 echo ""
 key () {
