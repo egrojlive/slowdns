@@ -38,6 +38,7 @@ echo ""
 echo -e "👉Definiendo Dns De Cloudflare..."
 echo ""
 fun_dnscf
+if [ $1 ]; then
 slowdns ssh $dominio
 echo ""
 cd
@@ -45,3 +46,9 @@ rm $0 > /dev/null 2>&1
 echo -e "👉Instalacion terminada"
 echo -e "👉ejecuta slowdns para acceder al menu"
 echo
+else
+echo ""
+cd
+echo -e "👉ejecuta slowdns para acceder al menu"
+echo
+fi
