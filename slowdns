@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
-if [ $2 ]; then 
-nameserver="$2"
-else
-echo -e "\n✍️Escribe Un Nombre De Dominio typo NS:\n"
-read nameserver
-fi
+
 function slowdns() {
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "MENU SLOWDNS MANAGER V3.0" ; tput sgr0
@@ -119,13 +114,26 @@ function Sair() {
     exit
 }
 
+function validar_dnshost(){
+if [ $1 ]; then 
+nameserver="$1"
+else
+echo -e "\n✍️Escribe Un Nombre De Dominio typo NS:\n"
+read nameserver
+fi
+}
+
 if [ "$1" == "ssh" ]; then
+validar_dnshost $2
 slow_ssh
 elif [ "$1" == "ssl" ]; then
+validar_dnshost $2
 slow_ssl
 elif [ "$1" == "drop" ]; then
+validar_dnshost $2
 slow_dropb
 elif [ "$1" == "socks" ]; then
+validar_dnshost $2
 slow_sock
 elif [ "$1" == "info" ]; then
 slow_info
